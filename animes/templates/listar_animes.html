@@ -6,8 +6,9 @@
     <title>Lista de Animes</title>
 </head>
 <body>
-    <h1>Lista de Animes Buscados:</h1>
-    <a href="{% url 'buscar_anime' %}">Buscar Mais Animes</a>
+    <h1>Lista de Animes</h1>
+      <a href="{% url 'watchlist_view' %}">Ver Minha Watchlist</a>
+    <a href="{% url 'buscar_anime' %}">Buscar Animes</a>
     <ul>
         {% for anime in animes %}
             <li>
@@ -15,7 +16,8 @@
                 <img src="{{ anime.imagem }}" alt="{{ anime.nome }}" width="150"><br>
                 <p>{{ anime.sinopse }}</p>
                 <p><strong>Data de Lançamento:</strong> {{ anime.data_lancamento }}</p>
-                <a href="{% url 'deletar_anime' anime.pk %}">Deletar</a>
+                <a href="{% url 'deletar_anime' anime.pk %}">Deletar</a> |
+                <a href="{% url 'add_to_watchlist' anime.id %}">Adicionar à Watchlist</a>
             </li>
         {% empty %}
             <li>Nenhum anime encontrado.</li>
