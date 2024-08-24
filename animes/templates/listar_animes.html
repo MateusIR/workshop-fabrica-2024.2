@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Animes</title>
+</head>
+<body>
+    <h1>Lista de Animes Buscados:</h1>
+    <a href="{% url 'buscar_anime' %}">Buscar Mais Animes</a>
+    <ul>
+        {% for anime in animes %}
+            <li>
+                <strong>{{ anime.nome }}</strong> - {{ anime.episodios }} episódios<br>
+                <img src="{{ anime.imagem }}" alt="{{ anime.nome }}" width="150"><br>
+                <p>{{ anime.sinopse }}</p>
+                <p><strong>Data de Lançamento:</strong> {{ anime.data_lancamento }}</p>
+                <a href="{% url 'deletar_anime' anime.pk %}">Deletar</a>
+            </li>
+        {% empty %}
+            <li>Nenhum anime encontrado.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
