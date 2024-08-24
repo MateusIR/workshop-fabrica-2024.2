@@ -3,23 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Animes</title>
+    <title>Minha Watchlist</title>
 </head>
 <body>
-    <h1>Lista de Animes</h1>
-    <a href="{% url 'watchlist_view' %}">Ver Minha Watchlist</a>
+    <h1>Minha Watchlist</h1>
     <ul>
-        {% for anime in animes %}
+        {% for anime in watchlist %}
             <li>
                 <strong>{{ anime.nome }}</strong> - {{ anime.episodios }} episódios<br>
                 <img src="{{ anime.imagem }}" alt="{{ anime.nome }}" width="150"><br>
                 <p>{{ anime.sinopse }}</p>
                 <p><strong>Data de Lançamento:</strong> {{ anime.data_lancamento }}</p>
-                <a href="{% url 'deletar_anime' anime.pk %}">Deletar</a> |
-                <a href="{% url 'add_to_watchlist' anime.id %}">Adicionar à Watchlist</a>
             </li>
         {% empty %}
-            <li>Nenhum anime encontrado.</li>
+            <li>Sua watchlist está vazia.</li>
         {% endfor %}
     </ul>
 </body>
