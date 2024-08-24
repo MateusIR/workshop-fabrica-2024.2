@@ -9,4 +9,4 @@ class Watchlist(models.Model):
     added_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return  {self.anime}
+        return str(self.anime.nome)

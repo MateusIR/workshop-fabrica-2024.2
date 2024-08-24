@@ -7,13 +7,16 @@
 </head>
 <body>
     <h1>Minha Watchlist</h1>
+    <a href="{% url 'buscar_anime' %}">Buscar Animes</a>
+    <a href="{% url 'listar_animes' %}">Ver Lista de Animes salvos</a>
     <ul>
-        {% for anime in watchlist %}
+        {% for item in watchlist %}
             <li>
-                <strong>{{ anime.nome }}</strong> - {{ anime.episodios }} episódios<br>
-                <img src="{{ anime.imagem }}" alt="{{ anime.nome }}" width="150"><br>
-                <p>{{ anime.sinopse }}</p>
-                <p><strong>Data de Lançamento:</strong> {{ anime.data_lancamento }}</p>
+                <strong>{{ item.anime.nome }}</strong><br>
+                Episódios: {{ item.anime.episodios }}<br>
+                Data de Lançamento: {{ item.anime.data_lancamento }}<br>
+                <img src="{{ item.anime.imagem }}" alt="{{ item.anime.nome }}" width="150"><br>
+                <a href="{% url 'remove_from_watchlist' item.anime.id %}">Remover</a>
             </li>
         {% empty %}
             <li>Sua watchlist está vazia.</li>
