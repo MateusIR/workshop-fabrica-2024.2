@@ -1,17 +1,21 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="{% static 'style.css'%}">
     <title>Deletar Anime</title>
 </head>
 <body>
+    <div class="organizar-centro">
     <h1>Deletar Anime</h1>
     <p>Tem certeza que deseja deletar o anime "{{ anime.nome }}"?</p>
     <form method="post">
         {% csrf_token %}
-        <button type="submit">Sim, deletar</button>
-        <a href="{% url 'listar_animes' %}">Cancelar</a>
+        <button class="comandos" type="submit">Deletar</button>
+        <a class="botao" href="{% url 'listar_animes' %}">Cancelar</a>
     </form>
+        </div>
 </body>
 </html>

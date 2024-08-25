@@ -1,5 +1,5 @@
 
-from django.urls import path, include
+from django.urls import path
 from animes.views import buscar_anime, listar_animes, deletar_anime
 
 urlpatterns = [

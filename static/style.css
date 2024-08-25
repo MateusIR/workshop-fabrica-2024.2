@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:wght@400;500;600&display=swap');
+
+body {
+    background: linear-gradient(100deg, #260a2e, #2b0522);
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    color: whitesmoke;
+}
+
+h1 {
+    font-family: 'Krona One', sans-serif;
+}
+
+p, h2, h3, h4, h5, h6, span, div, a, li {
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+.links {
+    text-decoration: none;
+    background-color: #fa5a7f;
+    border-radius: 20px;
+
+}
+.form-busca{
+    justify-content: center;
+    align-items: center;
+}
