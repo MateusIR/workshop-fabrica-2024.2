@@ -60,3 +60,7 @@ Utilize a interface para buscar animes, adicionar à watchlist e visualizar a li
 **animes:** Aplicativo principal, contendo modelos, views, forms e URLs para a funcionalidade de buscar e gerenciar animes.
 
 **watchlist:** Aplicativo para gerenciar a watchlist do usuário.
+
+------------
+
+Mateus ieno :)

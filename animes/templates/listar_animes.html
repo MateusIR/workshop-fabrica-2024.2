@@ -1,26 +1,28 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="{% static 'style.css'%}">
     <title>Lista de Animes</title>
 </head>
 <body>
     <h1>Lista de Animes</h1>
-      <a href="{% url 'watchlist_view' %}">Ver Minha Watchlist</a>
-    <a href="{% url 'buscar_anime' %}">Buscar Animes</a>
+      <a class="links" href="{% url 'watchlist_view' %}">Ver Minha Watchlist</a>
+    <a class="links" href="{% url 'buscar_anime' %}">Buscar Animes</a>
     <ul>
         {% for anime in animes %}
-            <li>
-                <strong>{{ anime.nome }}</strong> - {{ anime.episodios }} episódios<br>
+            <li class="animes">
+             <p><strong class="titulo">{{ anime.nome }}</strong>  -  {{ anime.episodios }} episódios</p> <br>
                 <img src="{{ anime.imagem }}" alt="{{ anime.nome }}" width="150"><br>
                 <p>{{ anime.sinopse }}</p>
                 <p><strong>Data de Lançamento:</strong> {{ anime.data_lancamento }}</p>
-                <a href="{% url 'deletar_anime' anime.pk %}">Deletar</a> |
-                <a href="{% url 'add_to_watchlist' anime.id %}">Adicionar à Watchlist</a>
+                <a class="comandos" href="{% url 'deletar_anime' anime.pk %}">Deletar</a> |
+                <a class="botao" href="{% url 'add_to_watchlist' anime.id %}">Adicionar à Watchlist</a>
             </li>
         {% empty %}
-            <li>Nenhum anime encontrado.</li>
+            <h1> <li>Nenhum anime encontrado.</li></h1>
         {% endfor %}
     </ul>
 </body>

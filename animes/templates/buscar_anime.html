@@ -1,20 +1,23 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buscar Anime</title>
+    <link rel="stylesheet" href="{% static 'style.css'%}">
 </head>
 <body>
-    <h1>Buscar Anime</h1>
-    <form method="post">
+    <div class="form-busca">
+    <h1>Buscar Anime</h1><br>
+    <form class="form-org" method="post">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Buscar e Adicionar</button>
+        {{ form.as_p }}<br>
+        <button class="botao" type="submit">Buscar e Salvar</button><br>
     </form>
-
+    </div>
     <br>
-    <a href="{% url 'listar_animes' %}">Ver Lista de Animes</a>
+    <a class="links" href="{% url 'listar_animes' %}">Ver Lista de Animes</a>
 
 </body>
 </html>

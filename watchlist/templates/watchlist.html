@@ -1,25 +1,27 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="{% static 'style.css'%}">
     <title>Minha Watchlist</title>
 </head>
-<body>
+<body style="background: linear-gradient(100deg, #5a2768, #590c18)">
     <h1>Minha Watchlist</h1>
-    <a href="{% url 'buscar_anime' %}">Buscar Animes</a>
-    <a href="{% url 'listar_animes' %}">Ver Lista de Animes salvos</a>
+    <a class="links" href="{% url 'buscar_anime' %}">Buscar Animes</a>
+    <a class="links" href="{% url 'listar_animes' %}">Ver Lista de Animes salvos</a>
     <ul>
         {% for item in watchlist %}
-            <li>
-                <strong>{{ item.anime.nome }}</strong><br>
+            <li class="animes">
+                <strong>{{ item.anime.nome }}</strong><br><br>
                 Episódios: {{ item.anime.episodios }}<br>
-                Data de Lançamento: {{ item.anime.data_lancamento }}<br>
-                <img src="{{ item.anime.imagem }}" alt="{{ item.anime.nome }}" width="150"><br>
-                <a href="{% url 'remove_from_watchlist' item.anime.id %}">Remover</a>
+                Data de Lançamento: {{ item.anime.data_lancamento }}<br><br>
+                <img src="{{ item.anime.imagem }}" alt="{{ item.anime.nome }}" width="150"><br><br>
+                <a class="comandos" href="{% url 'remove_from_watchlist' item.anime.id %}">Remover</a>
             </li>
         {% empty %}
-            <li>Sua watchlist está vazia.</li>
+            <h1><li class="organizar-centro" >Sua watchlist está vazia.</li></h1>
         {% endfor %}
     </ul>
 </body>
