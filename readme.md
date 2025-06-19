@@ -1,6 +1,7 @@
 # Projeto de watchlist de Animes
 
 ## Descrição
+Projeto para o processo seletivo da Fábrica de Software.
 Este projeto Django é um gerenciador de animes simples que permite aos usuários:
 
 * **Buscar animes:** Pesquisar por animes através de uma API externa e salvar no banco de dados.
